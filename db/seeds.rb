@@ -7,3 +7,33 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require 'faker'
+
+5.times do |i|
+  user = User.create!({
+    email: "test#{i+1}@test.com",
+    password: "password"
+  })
+end
+
+6.times do |i|
+  property = Property.create!({
+    name: Faker::Lorem.word,
+    headline: Faker::Lorem.sentences(number: 1),
+    description: Faker::Lorem.paragraphs,
+    address_1: Faker::Address.street_address,
+    address_2: Faker::Address.secondary_address,
+    city: Faker::Address.city,
+    state: Faker::Address.state,
+    country: Faker::Address.country
+  })
+
+  property.images.attach(
+    io: File.open("db/images/property_#{i+1}.png"),
+    filename: 'file.png'
+  )
+  property.images.attach(
+    io: File.open("db/images/property_#{i+7}.png"),
+    filename: 'file.png'
+  )
+end
