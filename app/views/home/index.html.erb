@@ -1,3 +1,6 @@
 <h1>Welcome to Airbnb</h1>
-<p>Please Login or Sign up to start.</p>
+<% if !user_signed_in? %>
+    <p>Please Login or Sign up to start.</p>
+<% end %>
+
 
