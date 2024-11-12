@@ -1,16 +1,18 @@
 <section class="container d-flex flex-row flex-wrap justify-content-around align-items-start">
     <% @properties.each do |property| %>
-    <div class="my-2 p-3 card" style="width: 24rem;">
-        <%= image_tag property.images[0], alt: 'Image Property', style:"width: auto; height: 230px;", class: "rounded"%>
-        <div class="my-2 w-auto d-flex flex-row justify-content-between align-items-center">
-            <div class="fw-bold"><%= property.city %>, <%= property.state%></div class="fw-bold">
-            <div class="d-flex flex-row align-items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 18px; width: 18px; fill: currentcolor; margin-right: 3px;"><path fill-rule="evenodd" d="m15.1 1.58-4.13 8.88-9.86 1.27a1 1 0 0 0-.54 1.74l7.3 6.57-1.97 9.85a1 1 0 0 0 1.48 1.06l8.62-5 8.63 5a1 1 0 0 0 1.48-1.06l-1.97-9.85 7.3-6.57a1 1 0 0 0-.55-1.73l-9.86-1.28-4.12-8.88a1 1 0 0 0-1.82 0z"></path></svg>
-                <span><%= property.average_overall.round(2) %></span>
+    <%= link_to property_path(property), class: "text-decoration-none" do %>
+        <div class="my-2 p-3 card" style="width: 24rem;">
+            <%= image_tag property.images[0], alt: 'Image Property', style:"width: auto; height: 230px;", class: "rounded"%>
+            <div class="my-2 w-auto d-flex flex-row justify-content-between align-items-center">
+                <div class="fw-bold"><%= property.city %>, <%= property.state%></div class="fw-bold">
+                <div class="d-flex flex-row align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 18px; width: 18px; fill: currentcolor; margin-right: 3px;"><path fill-rule="evenodd" d="m15.1 1.58-4.13 8.88-9.86 1.27a1 1 0 0 0-.54 1.74l7.3 6.57-1.97 9.85a1 1 0 0 0 1.48 1.06l8.62-5 8.63 5a1 1 0 0 0 1.48-1.06l-1.97-9.85 7.3-6.57a1 1 0 0 0-.55-1.73l-9.86-1.28-4.12-8.88a1 1 0 0 0-1.82 0z"></path></svg>
+                    <span><%= property.average_overall.round(2) %></span>
+                </div>
             </div>
+            <div><%= property.available_dates.first %> - <%= property.available_dates.last %></div>
+            <h6><%= property.price.to_i %> EUR <span>night</span></h6>
         </div>
-        <div><%= property.available_dates.first %> - <%= property.available_dates.last %></div>
-        <h6><%= property.price.to_i %> EUR <span>night</span></h6>
-    </div>
+        <% end %>
     <% end %>
 </section>

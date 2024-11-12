@@ -6,6 +6,29 @@ class Property < ApplicationRecord
   has_many :reservations, dependent: :destroy
   has_many :reserved_users, through: :reservations, source: :user, dependent: :destroy
 
+  def average_cleanliness
+    reviews.average(:cleanliness)
+  end
+
+  def average_accuracy
+    reviews.average(:accuracy)
+  end
+
+  def average_checkin
+    reviews.average(:checkin)
+  end
+
+  def average_communication
+    reviews.average(:communication)
+  end
+
+  def average_location
+    reviews.average(:location)
+  end
+
+  def average_value
+    reviews.average(:value)
+  end
 
   def update_average_overall
     average_overall = reviews.average(:overall)

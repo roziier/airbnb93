@@ -1,0 +1,69 @@
+<section class="container d-flex flex-column">
+    <div class="mt-3 w-auto d-flex flex-row justify-content-between align-items-center">
+        <div class="fs-2"><%= @property.name %></div>
+        <div>Share</div>
+    </div>
+    <div class="w-auto mt-3 d-flex flex-row justify-content-between align-items-center">
+        <div class="col">
+            <%= image_tag @property.images[0], alt: 'Image Property', style:"width: 98%; height: 400px;", class: "rounded"%>
+        </div>
+        <div class="col d-flex flex-column align-items-between">
+            <div class="w-100 h-auto d-flex flex-row justify-content-around align-items-start">
+                <div class="col">
+                    <%= image_tag @property.images[1], alt: 'Image Property', style:"width: 98%; height: 190px;", class: "rounded"%>
+                </div>
+                <div class="col">
+                    <%= image_tag @property.images[0], alt: 'Image Property', style:"width: 98%; height: 190px;", class: "rounded"%>
+                </div>
+            </div>
+            <div class="w-100 h-auto d-flex flex-row justify-content-around align-items-baseline">
+                <div class="col">
+                    <%= image_tag @property.images[1], alt: 'Image Property', style:"width: 98%; height: 190px;", class: "rounded"%>
+                </div>
+                <div class="col">
+                    <%= image_tag @property.images[0], alt: 'Image Property', style:"width: 98%; height: 190px;", class: "rounded"%>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container mt-5 d-flex flex-row">
+    <div class="col d-flex flex-column">
+        <h1 class="mb-3"><%= @property.headline %></h1>
+        <p><%= @property.description %></p>
+    </div>
+    <div class="col d-flex flex-column">
+        <p><%= @property.description %></p>
+    </div>
+</section>
+<section class="container mt-5 d-flex flex-row">
+    <div class="col d-flex flex-column">
+        <h4>REVIEW</h4>
+
+    </div>
+    <div class="col d-flex flex-column">
+        <h6>Cleanliness</h6>
+        <h4><%= @property.average_cleanliness %></h4> 
+    </div>
+    <div class="col d-flex flex-column">
+        <h6>Accuracy</h6>
+        <h4><%= @property.average_accuracy %></h4>  
+    </div>
+    <div class="col d-flex flex-column">
+        <h6>Check-in</h6> 
+        <h4><%= @property.average_checkin %></h4> 
+    </div>
+    <div class="col d-flex flex-column">
+        <h6>Communication</h6>
+        <h4><%= @property.average_communication %></h4> 
+    </div>
+    <div class="col d-flex flex-column">
+        <h6>Location</h6> 
+        <h4><%= @property.average_location %></h4> 
+    </div>
+    <div class="col d-flex flex-column">
+        <h6>Value</h6>
+        <h4><%= @property.average_value %></h4> 
+    </div>
+</section>
+
