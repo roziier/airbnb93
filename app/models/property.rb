@@ -3,4 +3,9 @@ class Property < ApplicationRecord
   has_many_attached :images
   has_many :reviews, dependent: :destroy
 
+  def update_average_overall
+    average_overall = reviews.average(:overall)
+    update_column(:average_overall, average_overall)
+  end
+
 end

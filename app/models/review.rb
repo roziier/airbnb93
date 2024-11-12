@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
   belongs_to :user
-  belongs_to :property
+  belongs_to :property, counter_cache: true
 
   validates :content, presence: :true
   validates :cleanliness, numericality: {only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 5}
@@ -16,5 +16,8 @@ class Review < ApplicationRecord
     total_score = cleanliness + accuracy + checkin + communication + location + value
 
     update_column(:overall, total_score.to_f / 6)
+    property.update_average_overall
   end
+
+  
 end
