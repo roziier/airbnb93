@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  cleanliness: 1
+  accuracy: 1
+  checkin: 1
+  communication: 1
+  location: 1
+  value: 1
+  overall: 9.99
+  user: one
+  property: one
+
+two:
+  content: MyText
+  cleanliness: 1
+  accuracy: 1
+  checkin: 1
+  communication: 1
+  location: 1
+  value: 1
+  overall: 9.99
+  user: two
+  property: two

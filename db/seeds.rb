@@ -10,7 +10,7 @@
 require 'faker'
 
 5.times do |i|
-  user = User.create!({
+  User.create({
     email: "test#{i+1}@test.com",
     password: "password"
   })
@@ -37,4 +37,19 @@ end
     io: File.open("db/images/property_#{i+7}.png"),
     filename: 'file.png'
   )
+
+  5.times do |i|
+    review = Review.create!({
+      content: "Review number #{1+i}",
+      cleanliness: Faker::Number.between(from: 1, to: 5),
+      accuracy: Faker::Number.between(from: 1, to: 5),
+      checkin: Faker::Number.between(from: 1, to: 5),
+      communication: Faker::Number.between(from: 1, to: 5),
+      location: Faker::Number.between(from: 1, to: 5),
+      value: Faker::Number.between(from: 1, to: 5),
+      property: property,
+      user: User.all.sample
+    })
+  end
+
 end
