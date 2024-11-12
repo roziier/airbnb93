@@ -26,6 +26,9 @@ gem "importmap-rails"
 # Active Storage
 gem 'image_processing'
 
+# Display price
+gem 'money-rails'
+
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
 
