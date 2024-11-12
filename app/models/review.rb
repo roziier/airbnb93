@@ -18,6 +18,5 @@ class Review < ApplicationRecord
     update_column(:overall, total_score.to_f / 6)
     property.update_average_overall
   end
-
   
 end

@@ -1,6 +1,10 @@
-<h1>Welcome to Airbnb</h1>
 <% if !user_signed_in? %>
+    <h1>Welcome to Airbnb</h1>
     <p>Please Login or Sign up to start.</p>
+<% else %>
+    <%= render 'property_index' %>
 <% end %>
+
+
 
 
