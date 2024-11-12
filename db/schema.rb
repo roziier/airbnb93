@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_12_101156) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_12_131023) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,6 +59,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_12_101156) do
     t.integer "reviews_count"
   end
 
+  create_table "reservations", force: :cascade do |t|
+    t.date "checkin_date"
+    t.date "checkout_date"
+    t.bigint "user_id", null: false
+    t.bigint "property_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["property_id"], name: "index_reservations_on_property_id"
+    t.index ["user_id", "property_id", "checkin_date", "checkout_date"], name: "add_index_to_reservations", unique: true
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.text "content"
     t.integer "cleanliness"
@@ -90,6 +102,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_12_101156) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "reservations", "properties"
+  add_foreign_key "reservations", "users"
   add_foreign_key "reviews", "properties"
   add_foreign_key "reviews", "users"
 end
